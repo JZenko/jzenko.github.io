@@ -1,21 +1,20 @@
-main{
-background-color: rgb(24,24,27);
-padding-top: 5em ;
-color: whitesmoke;
-font-size: clamp(12px, 1vw, 18px);
-
+main {
+    background-color: rgb(24, 24, 27);
+    padding-top: 5em;
+    color: whitesmoke;
+    font-size: clamp(12px, 1vw, 18px);
     margin-left: 100px;
     margin-right: 100px;
     margin-bottom: 200px;
 }
 
-img{
-  max-width: 100%;
-  height: auto;
-  display: block;
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
-.opener{
+.opener {
     font-family: "Roboto", sans-serif;
     font-optical-sizing: auto;
     font-weight: 100;
@@ -28,30 +27,39 @@ img{
 .project-grid {
     margin: 70px auto;
     border: solid rgb(176, 180, 184) 1px;
-    width: fit-content;
     background-color: rgb(24, 24, 27);
     border: none;
     box-shadow: rgba(255, 255, 255, 0.308) 1px 1px 0px, rgba(0, 0, 0, 0.16) 0px 8px 24px, rgba(0, 0, 0, 0.12) 0px 1px 6px;
     border-radius: 12px;
     padding: 1px 36px;
-    width: clamp(350px, 45vw, 600px);
+    width: clamp(400px, 45vw, 600px);
+    box-sizing: border-box;
 }
 
-.block-content{ /*make the grey border around the project block ease into a color to give a tell for click*/
-    display: grid;
+@media (max-width: 500px) {
+    .project-grid {
+        padding: 1px 1em; /* reduce padding */
+        margin: 40px auto; /* keep it centered */
+        width: 90%; /* Let the project grid shrink */
+    }
+}
+
+.block-content { /* make the grey border around the project block ease into a color to give a tell for click */
+    display: flex; /* Use flexbox for a more flexible layout */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: center; /* Center items within the flex container */
+    gap: 15px; /* Spacing between items */
     margin: 70px auto;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    justify-items: center;
 }
 
-.block-content > div:hover{
-  border: ridge 2px rgb(59, 130, 246); 
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.678);
+.block-content > div:hover {
+    border: ridge 2px rgb(59, 130, 246);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.678);
 }
 
-.block-content >div{
-    width: 100%;
+.block-content > div {
+    flex-basis: 45%; /* Use a percentage for a fluid width */
+    max-width: 400px; /* Cap the max width for larger screens */
     box-sizing: border-box;
     background-color: rgb(24, 24, 27);
     border: 2px solid rgba(255, 255, 255, 0.308);
@@ -61,48 +69,48 @@ img{
     transition: border-color 0.7s ease;
 }
 
-
-.block-content >div h2{
+.block-content > div h2 {
     text-align: center;
     font-size: 1.2rem;
 }
 
 /* Modals */
 .modal {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0,0,0,0.5);
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .hidden {
-  display: none;
-  opacity: 0%;
+    display: none;
+    opacity: 0%;
 }
 
 .modal-content {
-  background: rgb(24, 24, 27);
-  padding: 24px;
-  border-radius: 12px;
-  max-width: 736px;
-  width: 90%;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  text-align: center;
+    background: rgb(24, 24, 27);
+    padding: 24px;
+    border-radius: 12px;
+    max-width: 736px;
+    width: 90%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
 .modal-content button {
-  background: rgb(59, 130, 246);
-  color: whitesmoke;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: ease 0.2s;
+    background: rgb(59, 130, 246);
+    color: whitesmoke;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: ease 0.2s;
 }
+
 .modal-content button:hover {
-  background: rgb(37, 99, 235);
+    background: rgb(37, 99, 235);
 }
 
 /* css for buttons */
@@ -156,15 +164,23 @@ img{
 
 /* modal images */
 .modal-content img {
-  width: 100%;           /* fill the modal width */
-  max-width: 1152px;      /* cap width */
-  max-height: 921px;     /* cap height */
-  object-fit: contain;   /* scale to fit without cropping */
-  border-radius: 8px;
-  margin: 0 auto;        /* center horizontally */
-  display: none;         /* hidden by default, JS shows one */
+    width: 100%; /* fill the modal width */
+    max-width: 1152px; /* cap width */
+    max-height: 921px; /* cap height */
+    object-fit: contain; /* scale to fit without cropping */
+    border-radius: 8px;
+    margin: 0 auto; /* center horizontally */
+    display: none; /* hidden by default, JS shows one */
 }
 
 .modal-content img.active {
-  display: block;
+    display: block;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    .block-content > div {
+        flex-basis: 90%; /* Make them wider on mobile to take up more space */
+        max-width: unset; /* Remove the max-width to allow them to fill the container */
+    }
 }

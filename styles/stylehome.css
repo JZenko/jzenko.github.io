@@ -1,11 +1,10 @@
 main{
 background-color: rgb(24,24,27);
-padding-top: 5em ;
 color: whitesmoke;
 font-size: 1.3rem;
-    margin-left: 100px;
-    margin-right: 100px;
-    margin-bottom: 200px;
+padding: 5em 1em 200px 1em;
+max-width: 1200px;
+margin: 0 auto; 
 }
 
 h1{
@@ -19,9 +18,29 @@ h1{
     font-style: normal;
     font-variation-settings: "wdth" 100;
     display: flex;
-    gap: 200px;
+    gap: 2rem;
     align-items: center;
     justify-content: center;
+}
+
+/* Phone version is @media */
+@media (max-width: 1125px) {
+  .about-me {
+    flex-direction: column;
+    gap: 2rem; /* smaller gap on mobile */
+    text-align: center;
+    
+  }
+
+  .about-me img {
+    width: 250px; /* scale image down */
+    
+  }
+
+  .about-me p {
+    text-align: center; /* override p to center in this section */
+    margin: 0 auto;
+  }
 }
 
 p{
@@ -40,13 +59,20 @@ img{
     margin: 70px auto;
     border: solid rgb(176, 180, 184) 1px;
     border-radius: 25px;
-    width: fit-content;
     background-color: rgb(24, 24, 27);
     border: none;
     box-shadow: rgba(255, 255, 255, 0.308) 1px 1px 0px, rgba(0, 0, 0, 0.16) 0px 8px 24px, rgba(0, 0, 0, 0.12) 0px 1px 6px;
     border-radius: 12px;
     padding: 32px 36px;
-    width: clamp(350px, 45vw, 600px);
+    width: 100%;  
+    max-width: 700px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 450px) {
+  .rdl {
+    margin: 40px 1em;  /* keep spacing left/right */
+  }
 }
 
 .rdl h2 {
@@ -62,6 +88,7 @@ img{
     font-weight: 100;
     margin-bottom: 24px;
     line-height: 1.5em;
+    text-align: left;
 }
 
 .rdl-button {
