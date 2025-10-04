@@ -49,7 +49,11 @@
       </div>
       <div onclick="openProject('modal3')">
         <h2>Automatic Streetlights</h2>
-        <p>A 3D model of a street using LED's and a LDR resistor to detect light in the surrounding area.</p>
+        <p>A model of a street using LED's and a LDR resistor to detect light in the surrounding area.</p>
+      </div>
+      <div onclick="openProject('modal4')">
+        <h2>Autodesk Revit House</h2>
+        <p>A simple Home built within Revit. As a way to learn the application.</p>
       </div>
       <!-- undo comment below when you get another project done-->
       <!--
@@ -117,13 +121,29 @@
     </div>
   </div>
 
+<div id="modal4" class="modal hidden">
+    <div class="modal-content">
+      <h2>Automatic Streetlights</h2>
+      <button class="carousel-btn prev-btn" aria-label="Previous projects">
+         <i class="fas fa-chevron-left"></i>
+      </button>
+      <img src="images/Revit2.PNG" alt="3d View 1" />
+      <img src="images/Revit1.PNG" alt="3d View 2" />
+      <button class="carousel-btn next-btn" aria-label="Next projects">
+       <i class="fas fa-chevron-right"></i>
+      </button>
+      <p></p>
+      <button onclick="closeProject('modal4')">X</button>
+    </div>
+  </div>
+
 
   <!-- fill in here when you get a 4th project done-->
-  <div id="modal4" class="modal hidden">
+  <div id="modal5" class="modal hidden">
     <div class="modal-content">
       <h2></h2>
       <p></p>
-      <button onclick="closeProject('modal4')">X</button>
+      <button onclick="closeProject('modal5')">X</button>
     </div>
   </div>
 
